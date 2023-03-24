@@ -10,6 +10,7 @@
       <!-- <a v-bind:href="url" target="_blank">Google link</a> -->
       <a :href="url" target="_blank">Google link</a>
       <p v-html="raw_url"></p>
+      <p>{{age}}</p>
 
       <hr />
 
@@ -17,6 +18,9 @@
       <input type="text" v-model="firstName" />
       <label>Last Name</label>
       <input type="text" v-model="lastName" />
+
+      <button type="button" @:onClick="age--">-</button>
+      <button type="button" @:onClick="increment">+</button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
