@@ -16,11 +16,22 @@
 
       <label>First Name</label>
       <input type="text" v-model="firstName" />
-      <label>Last Name</label>
-      <input type="text" v-model="lastName" />
 
-      <button type="button" @:onClick="age--">-</button>
-      <button type="button" @:onClick="increment">+</button>
+      <label>Middle Name</label>
+      <input type="text" :value="middleName" @keyup.enter="updateMiddleName" />
+
+      <label>Last Name</label>
+      <input
+        type="text"
+        :value="lastName"
+        @input.prevent="updateLastName('last name field changed', $event)"
+      />
+
+      <label>Age</label>
+      <input type="text" v-model="firstName" />
+
+      <button type="button" @click="age--">-</button>
+      <button type="button" @click.ctrl="increment">+</button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
