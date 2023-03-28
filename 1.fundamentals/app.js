@@ -11,9 +11,6 @@ Vue.createApp({
     };
   },
   methods: {
-    fullname() {
-      return `${this.firstName} ${this.middleName} ${this.lastName}`;
-    },
     increment() {
       this.age++;
     },
@@ -24,6 +21,19 @@ Vue.createApp({
     },
     updateMiddleName(event) {
       this.middleName = event.target.value;
+    },
+  },
+  computed: {
+    fullname() {
+      return `${this.firstName} ${this.middleName} ${this.lastName}`;
+    },
+  },
+  watch: {
+    age(newV, oldV) {
+      setTimeout(() => {
+        console.log('chamado');
+        this.age = 19;
+      }, 5000);
     },
   },
 }).mount('#app');

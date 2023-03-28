@@ -6,7 +6,7 @@
   </head>
   <body>
     <div id="app" v-cloak>
-      <p>{{fullname()}}</p>
+      <p>{{fullname}}</p>
       <!-- <a v-bind:href="url" target="_blank">Google link</a> -->
       <a :href="url" target="_blank">Google link</a>
       <p v-html="raw_url"></p>
@@ -15,7 +15,7 @@
       <hr />
 
       <label>First Name</label>
-      <input type="text" v-model="firstName" />
+      <input type="text" v-model.lazy.trim="firstName" />
 
       <label>Middle Name</label>
       <input type="text" :value="middleName" @keyup.enter="updateMiddleName" />
@@ -28,7 +28,7 @@
       />
 
       <label>Age</label>
-      <input type="text" v-model="firstName" />
+      <input type="number" v-model.number="age" />
 
       <button type="button" @click="age--">-</button>
       <button type="button" @click.ctrl="increment">+</button>
