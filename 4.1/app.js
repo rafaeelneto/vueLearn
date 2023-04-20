@@ -1,10 +1,4 @@
 let vm = Vue.createApp({
-  data() {
-    return {
-      message: 'Hello world!',
-    };
-  },
-  template: `{{message}}`,
   beforeCreate() {
     console.log(`beforeCreate function called ${this.message}`);
   },
@@ -32,6 +26,15 @@ let vm = Vue.createApp({
   },
 });
 
+vm.component('hello', {
+  data() {
+    return {
+      message: 'hello from component',
+    };
+  },
+  template: `<h1>{{message}}</h1>`,
+});
+
 vm.mount('#app');
 
 let vm2 = Vue.createApp({
@@ -41,7 +44,7 @@ let vm2 = Vue.createApp({
     };
   },
   render() {
-    return Vue.h('h1', this.message);
+    return Vue.h('h2', this.message);
   },
 }).mount('#app2');
 
