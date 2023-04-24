@@ -1,7 +1,11 @@
 <template>
   <p>Text outside greeing component</p>
   <Greeting :age="age"></Greeting>
-  <User :age="age" @increase-age="onChangeAge"></User>
+  <User
+    :age="age"
+    @increase-age="onChangeAge"
+    :onAgeChange="onChangeAgeCB"
+  ></User>
 </template>
 <script>
 import Greeting from '@/components/Greeting.vue';
@@ -21,6 +25,9 @@ export default {
   methods: {
     onChangeAge() {
       this.age++;
+    },
+    onChangeAgeCB(num) {
+      this.age += num;
     },
   },
 };
